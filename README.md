@@ -1,4 +1,15 @@
+---
+title: SCTT Demo
+emoji: 🚌
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # SCTT Bus Booking Chatbot Demo
+
 
 A WhatsApp-style bus booking chatbot demo with a live operator dashboard. A single Express server hosts the React build, REST endpoints, and Socket.IO on port 3000. Bookings live in memory — no database.
 
