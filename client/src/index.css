@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Richer WhatsApp doodle background — stars, hearts, messages, camera, tick. */
+.wa-doodle {
+  background-color: #EFE7DE;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220' opacity='0.06'><g fill='none' stroke='%23000' stroke-width='1.2'><path d='M20 25l6-6M40 10l6 6M30 5v12M15 50c2 0 4-1 4-4 0-2-2-3-4-3s-4 1-4 3c0 3 2 4 4 4zM70 30l5 5 5-5-5-5-5 5z'/><path d='M100 20a10 10 0 1 0 0 20 10 10 0 0 0 0-20z'/><path d='M150 10l4 4M160 25l-4 4M170 15l-5 5'/><circle cx='190' cy='30' r='7'/><path d='M185 33l4 4 7-8'/><path d='M40 80c4 0 8-3 8-8s-4-8-8-8-8 3-8 8c0 2 1 4 2 5l-2 5 6-2z'/><path d='M95 95l10-10M115 95l-10-10'/><circle cx='150' cy='90' r='12' fill='%23000' fill-opacity='0.4'/><path d='M145 90l4 4 7-8' stroke='%23fff' stroke-width='2'/><path d='M195 75a8 8 0 1 0 0 16'/><path d='M25 145l5-5 5 5-5 5-5-5zM70 160c4 0 7-3 7-7s-3-7-7-7-7 3-7 7c0 2 1 3 2 4l-1 4 5-1z'/><path d='M110 140l15 10-15 10'/><path d='M165 140l5-10 5 10-5 10-5-10z'/><circle cx='200' cy='155' r='6'/><path d='M30 200l8-8M50 195l8 8M80 205l8-8'/><path d='M115 185c4 0 7-3 7-7s-3-7-7-7-7 3-7 7c0 3 2 5 4 6l-2 4 5-3z'/><path d='M160 195l10 5 5-10M200 200l-5-5'/></g></svg>");
+}
+
+/* Bubble tails — little triangular pointers like WhatsApp. */
+.bubble-tail-right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -7px;
+  width: 0; height: 0;
+  border-top: 8px solid #DCF8C6;
+  border-right: 8px solid transparent;
+}
+.bubble-tail-left::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -7px;
+  width: 0; height: 0;
+  border-top: 8px solid white;
+  border-left: 8px solid transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar { width: 6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 3px; }
+.scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+
+/* Number count-up uses CSS custom property + tabular-nums for stable width. */
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+/* Animated gradient avatar — a subtle sheen. */
+.avatar-sheen {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  position: relative;
+  overflow: hidden;
+}
+.avatar-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%);
+  transform: translateX(-100%);
+  animation: sheen 3s ease-in-out infinite;
+}
+@keyframes sheen {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+/* Dashboard toast shape. */
+.toast-card {
+  background: white;
+  border-left: 4px solid #25D366;
+}
